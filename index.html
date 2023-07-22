@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiki's Diner - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="navbar-links">
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="menu.html">Menu</a>
+        </li>
+        <li>
+          <a href="order.html">Order</a>
+        </li>
+        <li>
+          <a href="review.html">Reviews</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="fadein">
+      <section class="main">
+        <div class="content">
+          <div class="title">
+            <h2>Welcome to Kiki's Diner</h2>
+            <div class="underline"></div>
+          </div>
+          <div class="paragraphs-container">
+            <div class="paragraph">
+              <h2>About Us</h2>
+              <h3>Welcome to Kiki's Corner, the cozy diner at the heart of the neighborhood, where delicious flavors meet warm hospitality.</h3>
+            </div>
+            <div class="paragraph">
+              <h2>Our Menu</h2>
+              <h3>At Kiki's Corner, we take pride in our diverse menu that caters to all tastes and preferences. </ph3>
+            </div>
+            <div class="paragraph">
+              <h2>Join Us</h2>
+              <h3>We invite you to join us at Kiki's Corner and embark on a delightful culinary journey.</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="splitter">
+        <h3>Quick access</h3>
+      </section>
+      <section class="image-section">
+        <div class="image-container">
+          <a href="menu.html" class="image-link" title="Menu">
+            <img src="./images/menupop.jpg" alt="Menu" class="image">
+          </a>
+          <a href="order.html" class="image-link" title="Order">
+            <img src="./images/deliverypop.jpg" alt="Order" class="image">
+          </a>
+          <a href="review.html" class="image-link" title="Review">
+            <img src="./images/reviewpop.jpg" alt="Review" class="image">
+          </a>
+        </div>
+        <h2 class="splitter">Check out our premises!</h2>
+      </section>
+      <section class="gallery-section">
+        <div class="gallery">
+          <img src="./images/diner2.jpg" alt="Diner photo 2" class="gallery-item" />
+          <img src="./images/diner3.jpg" alt="Diner photo 3" class="gallery-item" />
+          <img src="./images/diner4.jpg" alt="Diner photo 4" class="gallery-item" />
+        </div>
+        <div class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="modal-image" />
+          <div class="gallery-navigation">
+            <div class="nav-btn" id="prev-btn">&lt;</div>
+            <div class="nav-btn" id="next-btn">&gt;</div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer class="footer">
+      <p>&copy; 2023 Kiki's Diner. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="https//:www.facebook.com" target="_blank" class="social-icon">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https//:twitter.com" target="_blank" class="social-icon">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https//:instagram.com" target="_blank" class="social-icon">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </footer>
+    <script src="index.js"></script>
+    <script>
+      const gallery = document.querySelector(".gallery");
+      const galleryItems = document.querySelectorAll(".gallery-item");
+      const modal = document.querySelector(".modal");
+      const modalContent = document.getElementById("modal-image");
+      const closeBtn = document.querySelector(".close");
+      const prevBtn = document.getElementById("prev-btn");
+      const nextBtn = document.getElementById("next-btn");
+      let currentIndex = 0;
+
+      function showModal(index) {
+        modal.style.display = "block";
+        currentIndex = index;
+        updateModalContent();
+      }
+
+      function hideModal() {
+        modal.style.display = "none";
+      }
+
+      function updateModalContent() {
+        modalContent.src = galleryItems[currentIndex].src;
+      }
+      galleryItems.forEach((item, index) => {
+        item.addEventListener("click", () => {
+          showModal(index);
+        });
+      });
+      closeBtn.addEventListener("click", () => {
+        hideModal();
+      });
+      prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateModalContent();
+        }
+      });
+      nextBtn.addEventListener("click", () => {
+        if (currentIndex < galleryItems.length - 1) {
+          currentIndex++;
+          updateModalContent();
+        }
+      });
+      modal.addEventListener("mouseenter", () => {
+        prevBtn.style.display = "block";
+        nextBtn.style.display = "block";
+      });
+      modal.addEventListener("mouseleave", () => {
+        prevBtn.style.display = "none";
+        nextBtn.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

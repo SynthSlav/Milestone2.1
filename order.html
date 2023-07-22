@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" href="order.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="navbar-links">
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="menu.html">Menu</a>
+        </li>
+        <li>
+          <a href="order.html">Order</a>
+        </li>
+        <li>
+          <a href="review.html">Reviews</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="main">
+      <section class="order-section">
+        <div class="order-content">
+          <h2>Place Your Order</h2>
+          <p>We are happy to deliver to your home!</p>
+          <p>Find us on:</p>
+          <div class="delivery-platforms">
+            <img src="./images/jeat-logo.png" alt="Just Eat" class="delivery-platform-logo" />
+            <img src="/images/deliveroo-logo.png" alt="Deliveroo" class="delivery-platform-logo" />
+            <img src="/images/uber-logo.png" alt="UberEats" class="delivery-platform-logo" />
+          </div>
+        </div>
+      </section>
+      <section class="booking-section">
+        <div class="booking-content">
+          <h2>Make a Booking</h2>
+          <p>We would be delighted to have you dine with us!</p>
+          <form id="booking-form">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="name" id="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" required />
+            </div>
+            <div class="form-group">
+              <label for="date">Date:</label>
+              <input type="date" id="date" required />
+            </div>
+            <div class="form-group">
+              <label for="time">Time:</label>
+              <input type="time" id="time" required />
+            </div>
+            <div class="form-group">
+              <label for="people">Number of People:</label>
+              <input type="number" id="people" min="1" required />
+            </div>
+            <button type="submit">Book Now</button>
+          </form>
+          <div id="booking-confirmation"></div>
+        </div>
+      </section>
+      <section class="contact-section">
+        <h2>OR</h2>
+        <h3>Alternatively, you can contact us:</h3>
+        <a href="tel:+447532709050">+447532709050</a>
+        <a href="mailto:kikisdiner@gmail.com">kikisdiner@gmail.com</a>
+      </section>
+      <section class="address-section">
+        <h2>Address</h2>
+        <h3>70 Hednesford Road - Cannock England(UK)</h3>
+        <div id="map"></div>
+      </section>
+    </div>
+    <script src="order.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCcRTC4AJ5cs8CjiJ6JT7ILX-hJep1rDY&callback=initMap"></script>
+  </body>
+</html>
